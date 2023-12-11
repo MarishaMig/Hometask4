@@ -2,7 +2,7 @@
  при вводе символа ‘q’ или при вводе числа, сумма цифр которого четная. 
 5 12 16 q [STOP] 
 3 45 342 15 [STOP]*/
-
+/*
 int NumberSum(int n)
 {
     int sum=0;
@@ -39,3 +39,41 @@ else
 }
 }
 GetNumber();
+*/
+
+/*Задайте массив заполненный случайными трёхзначными числами. Напишите программу, которая 
+покажет количество чётных чисел в массиве. 
+[344 452 341 125] => 2*/
+
+
+Console.Write("Введите размер массива: ");
+int N=Convert.ToInt32(Console.ReadLine());
+int[] array = new int [N];
+
+void PrintArray()
+{
+    Console.Write("массив [");
+    for (int i=0; i<array.Length; i++)
+    {
+         array[i] = new Random().Next(100,1000);  
+        Console.Write(array[i] +" ");
+
+    }
+    Console.Write("]");
+}
+
+int GetNumbers()
+{
+    int count=0;
+    for (int i=0; i<array.Length; i++)
+    {
+        if (array[i]%2==0) 
+        {
+            count++;
+        }
+    }
+    return count;
+} 
+
+PrintArray();
+Console.WriteLine(" => " + GetNumbers());
