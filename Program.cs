@@ -45,7 +45,7 @@ GetNumber();
 покажет количество чётных чисел в массиве. 
 [344 452 341 125] => 2*/
 
-
+/*
 Console.Write("Введите размер массива: ");
 int N=Convert.ToInt32(Console.ReadLine());
 int[] array = new int [N];
@@ -77,3 +77,47 @@ int GetNumbers()
 
 PrintArray();
 Console.WriteLine(" => " + GetNumbers());
+*/
+
+
+/* Напишите программу, которая перевернёт одномерный массив (первый элемент станет последним, 
+второй – предпоследним и т.д.)
+[1 3 5 6 7 8] => [8 7 6 5 3 1]*/
+
+Console.Write("Введите размер массива: ");
+int N=Convert.ToInt32(Console.ReadLine());
+int[] array = new int [N];
+
+int[] CreateArray (int N)
+{
+    for (int i=0; i<array.Length; i++)
+    {
+         array[i] = new Random().Next(1,100);
+    }
+    return array;
+}
+void ArrayRevers(int [] array)
+{
+    for (int i=0; i<array.Length/2; i++)
+    {
+        int temp=array[i];
+        array[i]=array[array.Length-1-i];
+        array[array.Length-1-i]=temp;
+    }
+}
+
+void PrintArray (int[]array)
+{
+     Console.Write("массив [");
+    for (int i=0; i<array.Length; i++)
+    {
+        Console.Write(array[i] +" ");
+    }
+    Console.Write("]");
+}
+
+array=CreateArray(N);
+PrintArray(array);
+Console.Write(" => ");
+ArrayRevers(array);
+PrintArray(array);
